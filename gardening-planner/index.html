@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gardening Planner - Your Smart Garden Companion</title>
+    <meta name="description"
+        content="Gardening Planner helps you grow a thriving garden with smart reminders, layout tools, and a vibrant gardening community. Get plant care tips, layout planning, and weather updates for your garden.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Open Graph tags for rich link previews -->
+    <meta property="og:title" content="Gardening Planner - Your Smart Garden Companion" />
+    <meta property="og:description"
+        content="Grow smarter. Get care reminders, layout tools, and connect with gardeners worldwide. Free to get started!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourwebsite.com/" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/landing.css" />
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html" class="logo" style="text-decoration: none;">
+                    <span class="icon-leaf" aria-hidden="true">
+                        <!-- Modern leaf SVG icon (replace or style as you wish) -->
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                            <path d="M4 23C4 23 8.90909 14 18 5C18 5 28 19 14 24C14 24 7.45455 26.5455 4 23Z"
+                                fill="#4ac76d" />
+                        </svg>
+                    </span>
+                    <span>Gardening <span class="logo-accent">Planner</span></span>
+                </a>
+
+            </div>
+            <nav>
+                <a href="#features">Features</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <button class="header-btn" id="openAuthModal" aria-label="Sign in to Gardening Planner">Sign In</button>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 id="hero-title">
+                    Transform Your Garden<br>
+                    with <span class="highlight">Smart Planning</span>
+                </h1>
+                <p>
+                    Never miss a watering day again. Get personalized plant care reminders, design your perfect garden
+                    layout, and connect with a community of passionate gardeners.
+                </p>
+                <div class="hero-buttons">
+                    <button class="cta" id="startFreeBtn">Get Started Free</button>
+                    <button class="secondary">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="features-section" id="features">
+        <h2>Everything You Need to Garden Successfully</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon" aria-hidden="true">🔔</div>
+                <h3>Smart Reminders</h3>
+                <p>Get personalized care reminders for watering, fertilizing, and pruning based on your plants' needs.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" aria-hidden="true">🗺️</div>
+                <h3>Garden Layout Planner</h3>
+                <p>Design your perfect garden with our visual layout tool, considering sunlight and spacing needs.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" aria-hidden="true">📖</div>
+                <h3>Plant Library</h3>
+                <p>Access comprehensive information on thousands of plants with detailed care instructions.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" aria-hidden="true">🌦️</div>
+                <h3>Weather Integration</h3>
+                <p>Get real-time weather updates and adjust your gardening schedule accordingly.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" aria-hidden="true">🐛</div>
+                <h3>Pest Tracker</h3>
+                <p>Monitor and manage pests and diseases with early warning alerts and treatment solutions.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" aria-hidden="true">🤝</div>
+                <h3>Community Support</h3>
+                <p>Connect with fellow gardeners, share experiences, and get expert advice.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <div class="about-images">
+                <!-- Main large image -->
+                <div class="about-img-main">
+                    <img src="./assets/images/garden-plant-bg.png" alt="Gardener Watering Plants" />
+                    <div class="about-badge">
+                        <span class="badge-num">25+</span>
+                        <span class="badge-text">Years Of<br>Experience</span>
+                    </div>
+                </div>
+                <!-- Overlapping small image -->
+                <div class="about-img-small">
+                    <img src="./assets/images/mo-yc_4cl1RpoU-unsplash.jpg" alt="Gardening Hands" />
+                </div>
+            </div>
+            <div class="about-info">
+                <div class="about-intro">
+                    <span class="about-us-label">ABOUT US</span>
+                    <h2>
+                        We Are <span class="about-highlight">Excellent Horticulturists</span>
+                    </h2>
+                    <p>
+                        Gardening Planner is your all-in-one solution for making gardening effortless and joyful.
+                        Our smart tools help you track, plan, and nurture your garden—no matter your experience level.
+                        Join a community passionate about plants and watch your garden thrive!
+                    </p>
+                    <ul class="about-checklist">
+                        <li><span class="about-check">&#10003;</span> Personalized plant care and reminders</li>
+                        <li><span class="about-check">&#10003;</span> Real-time weather insights</li>
+                        <li><span class="about-check">&#10003;</span> Friendly gardening community</li>
+                        <li><span class="about-check">&#10003;</span> Expert tips &amp; guides</li>
+                    </ul>
+                </div>
+                <div class="about-contact-card">
+                    <span class="about-phone-icon">
+                        <svg width="30" height="30" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24">
+                            <rect width="24" height="24" rx="7" fill="#43b56a" />
+                            <path
+                                d="M17 14.45v2.08a1 1 0 0 1-1.1 1 18.41 18.41 0 0 1-8-2.8A15.86 15.86 0 0 1 6.29 7.67a1 1 0 0 1 1-1.13h2.08a1 1 0 0 1 1 .78l.47 2a1 1 0 0 1-.29 1l-.65.67a13.07 13.07 0 0 0 4.98 4.98l.67-.65a1 1 0 0 1 1-.29l2 .47a1 1 0 0 1 .78 1z" />
+                        </svg>
+                    </span>
+                    <div class="about-phone-details">
+                        <span class="about-call-title">Call Us Anytime</span>
+                        <span class="about-phone-number">+91 1234567890</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section" id="contact">
+        <div class="contact-flexbox">
+            <!-- LEFT: Info Column -->
+            <div class="contact-info-block">
+                <h2>Let’s Connect</h2>
+                <h3>Find out what Gardening Planner can do for you.</h3>
+                <p>
+                    Have a question, suggestion, or want to partner with us?<br>
+                    Fill out the form or reach us directly—our team will be happy to help you create the garden of your
+                    dreams!
+                </p>
+                <div class="contact-details-list">
+                    <div><span class="contact-icon">
+                            <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" width="18" />
+                        </span>
+                        515 Garden Lane, Srinagar, J&K 190001
+                    </div>
+                    <div><span class="contact-icon">
+                            <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" width="18" />
+                        </span>
+                        +91 1234567890
+                    </div>
+                    <div><span class="contact-icon">
+                            <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" width="18" />
+                        </span>
+                        <a href="mailto:support@gardeningplanner.com">support@gardeningplanner.com</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: Form Column -->
+            <div class="contact-form-block">
+
+                <form class="contact-form" id="appointmentForm" autocomplete="off">
+                    <h2>Make an Appointment</h2>
+                    <div class="contact-form-fields">
+                        <input type="text" name="name" id="appointmentName" placeholder="Name" required />
+                        <input type="text" name="phone" id="appointmentPhone" placeholder="Phone Number" required />
+                    </div>
+                    <input type="email" name="email" id="appointmentEmail" placeholder="Email Address" required />
+                    <textarea name="message" id="appointmentMessage" rows="4" placeholder="How can we help?"
+                        required></textarea>
+                    <button type="submit" class="contact-btn">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- NEWSLETTER / CTA SECTION -->
+    <section class="newsletter-section">
+        <div class="newsletter-bg">
+            <div class="newsletter-content">
+                <h2>Sign Up For Newsletters</h2>
+                <p>Sign up for our free video course and get urban garden inspiration</p>
+                <form class="newsletter-form" autocomplete="off">
+                    <input type="email" placeholder="Your email address" required />
+                    <button type="submit" aria-label="Subscribe">
+                        <svg width="28" height="28" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24">
+                            <circle cx="14" cy="14" r="12" fill="#43b56a" />
+                            <path d="M8 14h8m0 0l-4-4m4 4l-4 4" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer class="footer-section">
+        <div class="footer-content-wide">
+            <!-- Brand/desc/social -->
+            <div class="footer-col brand">
+                <div class="footer-logo">
+                    <span><b>Gardening</b><span class="brand-green">Planner</span></span>
+                </div>
+                <p>
+                    Gardening Planner helps you grow a thriving garden with smart reminders, layout tools, and a vibrant
+                    community.
+                </p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Twitter"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111703.png"
+                            alt="Twitter" /></a>
+                    <a href="#" aria-label="Facebook"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111392.png"
+                            alt="Facebook" /></a>
+                    <a href="#" aria-label="Instagram"><img
+                            src="https://cdn-icons-png.flaticon.com/512/2111/2111421.png" alt="Instagram" /></a>
+                </div>
+            </div>
+            <!-- Quick Links -->
+            <div class="footer-col quick-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <!-- Contact Info -->
+            <div class="footer-col contact-info">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li>
+                        <span class="footer-icon"><img src="https://cdn-icons-png.flaticon.com/512/724/724664.png"
+                                width="18" /></span>
+                        +91 1234567890
+                    </li>
+                    <li>
+                        <span class="footer-icon"><img src="https://cdn-icons-png.flaticon.com/512/561/561127.png"
+                                width="18" /></span>
+                        <a href="mailto:support@gardeningplanner.com">support@gardeningplanner.com</a>
+                    </li>
+                    <li>
+                        <span class="footer-icon"><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png"
+                                width="18" /></span>
+                        515 Garden Lane, Srinagar, J&K 190001
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>Copyright &copy; 2025 Gardening Planner. All rights reserved</span>
+            <div>
+                <a href="#">Privacy Policy</a> &middot; <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL BACKDROP -->
+    <div class="modal-bg" id="authModal" style="display:none;">
+        <div class="modal-glass">
+            <button class="close-modal" id="closeAuthModal" aria-label="Close">&times;</button>
+            <div id="authForms">
+                <!-- LOGIN FORM -->
+                <form id="loginForm" autocomplete="on">
+                    <h2>Login</h2>
+                    <div class="modal-field">
+                        <span class="modal-input-icon">
+                            <!-- Email icon -->
+                            <svg width="20" height="20" fill="none" viewBox="0 0 20 20">
+                                <rect x="2.5" y="4.5" width="15" height="11" rx="2" stroke="#47c87c" stroke-width="1.5"
+                                    fill="none" />
+                                <path d="M2.5 4.5l7.5 6 7.5-6" stroke="#47c87c" stroke-width="1.5" />
+                            </svg>
+                        </span>
+                        <input type="email" id="loginEmail" placeholder="Email" required aria-label="Email" />
+                    </div>
+                    <div class="modal-field">
+                        <span class="modal-input-icon">
+                            <!-- Lock icon -->
+                            <svg width="20" height="20" fill="none" viewBox="0 0 20 20">
+                                <rect x="4.5" y="9" width="11" height="7" rx="2" stroke="#47c87c" stroke-width="1.5" />
+                                <path d="M7 9V7a3 3 0 0 1 6 0v2" stroke="#47c87c" stroke-width="1.5" />
+                            </svg>
+                        </span>
+                        <input type="password" id="loginPassword" placeholder="Password" required
+                            aria-label="Password" />
+                    </div>
+                    <button type="submit" class="modal-btn">Login</button>
+                    <div class="modal-message" id="loginMessage"></div>
+                    <p>
+                        Don’t have an account? <a href="#" id="showRegister">Register</a>
+                    </p>
+                </form>
+                <!-- REGISTER FORM -->
+                <form id="registerForm" style="display:none;" autocomplete="on">
+                    <h2>Register</h2>
+                    <div class="modal-field">
+                        <span class="modal-input-icon">
+                            <!-- Email icon -->
+                            <svg width="20" height="20" fill="none" viewBox="0 0 20 20">
+                                <rect x="2.5" y="4.5" width="15" height="11" rx="2" stroke="#47c87c" stroke-width="1.5"
+                                    fill="none" />
+                                <path d="M2.5 4.5l7.5 6 7.5-6" stroke="#47c87c" stroke-width="1.5" />
+                            </svg>
+                        </span>
+                        <input type="email" id="registerEmail" placeholder="Email" required aria-label="Email" />
+                    </div>
+                    <div class="modal-field">
+                        <span class="modal-input-icon">
+                            <!-- Lock icon -->
+                            <svg width="20" height="20" fill="none" viewBox="0 0 20 20">
+                                <rect x="4.5" y="9" width="11" height="7" rx="2" stroke="#47c87c" stroke-width="1.5" />
+                                <path d="M7 9V7a3 3 0 0 1 6 0v2" stroke="#47c87c" stroke-width="1.5" />
+                            </svg>
+                        </span>
+                        <input type="password" id="registerPassword" placeholder="Password" required minlength="6"
+                            aria-label="Password" />
+                    </div>
+                    <button type="submit" class="modal-btn">Register</button>
+                    <div class="modal-message" id="registerMessage"></div>
+                    <p>
+                        Already have an account? <a href="#" id="showLogin">Login</a>
+                    </p>
+                </form>
+                <!-- SUCCESS MESSAGE (toggle with JS) -->
+                <div class="modal-message success-message" id="modalSuccess" style="display:none;">
+                    <span class="success-icon">
+                        <svg width="23" height="23" fill="none" viewBox="0 0 23 23">
+                            <circle cx="11.5" cy="11.5" r="11.5" fill="#47c87c" />
+                            <path d="M7 12.5l3 2.2 5-5.2" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </span>
+                    Registration successful! Redirecting...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/landing-modal.js"></script>
+    <script type="module" src="js/login-modal.js"></script>
+    <script type="module" src="js/register-modal.js"></script>
+    <script type="module" src="js/appointment-form.js"></script>
+</body>
+
+</html>

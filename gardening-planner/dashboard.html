@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gardening Planner - Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/plant-library.css">
+    <link rel="stylesheet" href="css/reminders.css">
+    <link rel="stylesheet" href="css/layout-planner.css">
+    <link rel="stylesheet" href="css/plant-journal.css">
+    <link rel="stylesheet" href="css/community.css">
+    <!-- Add icons CDN (Feather or Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
+
+<body>
+    <div class="dashboard-root">
+        <!-- SIDEBAR -->
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-logo">
+                <i class="fa-solid fa-leaf"></i> Gardening <span>Planner</span>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="active" data-section="dashboard"><i class="fa-solid fa-gauge"></i> Dashboard</li>
+                <li data-section="plants"><i class="fa-solid fa-seedling"></i> My Plants</li>
+                <li data-section="reminders"><i class="fa-solid fa-bell"></i> Reminders</li>
+                <li data-section="layout"><i class="fa-solid fa-border-all"></i> Layout Planner</li>
+                <li data-section="journal"><i class="fa-solid fa-book"></i> Journal</li>
+                <li data-section="weather"><i class="fa-solid fa-cloud-sun"></i> Weather</li>
+                <li data-section="community"><i class="fa-solid fa-users"></i> Community</li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User Avatar" />
+                    <span id="sidebarUsername">Welcome!</span>
+                </div>
+                <button id="logoutBtn"><i class="fa-solid fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </aside>
+        <!-- MAIN CONTENT -->
+        <main class="dashboard-main">
+            <!-- HEADER -->
+            <header class="dashboard-header">
+                <h2 id="dashboardWelcome">Welcome, Gardener!</h2>
+            </header>
+            <!-- DYNAMIC CONTENT -->
+            <section id="dashboardContent">
+                <!-- ========== DASHBOARD SECTION (default visible) ========== -->
+                <div id="dashboardSection">
+                    <div class="dashboard-widgets">
+                        <div class="dashboard-widget">
+                            <i class="fa-solid fa-seedling"></i>
+                            <div>
+                                <h3 id="widgetPlants">0</h3>
+                                <span>Plants</span>
+                            </div>
+                        </div>
+                        <div class="dashboard-widget">
+                            <i class="fa-solid fa-bell"></i>
+                            <div>
+                                <h3 id="widgetReminders">0</h3>
+                                <span>Reminders</span>
+                            </div>
+                        </div>
+                        <div class="dashboard-widget">
+                            <i class="fa-solid fa-book"></i>
+                            <div>
+                                <h3 id="widgetJournal">0</h3>
+                                <span>Journal Logs</span>
+                            </div>
+                        </div>
+                        <div class="dashboard-widget dashboard-weather-widget">
+                            <div class="dashboard-weather-main">
+                                <img id="dashboardWeatherIcon" src="" alt="Weather"
+                                    style="display:none;width:38px;height:38px;vertical-align:middle;" />
+                                <span id="widgetWeatherTemp" class="weather-temp">—</span>
+                            </div>
+                            <div class="dashboard-weather-meta">
+                                <span id="widgetWeatherDesc" class="weather-desc">Weather</span>
+                                <span id="widgetWeatherCity" class="weather-city"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dashboard-tip">
+                        <i class="fa-solid fa-lightbulb"></i> "Tip: Add your first plant to unlock all features!"
+                    </div>
+                </div>
+                <!-- ========== END DASHBOARD SECTION ========== -->
+
+                <!-- ==== MY PLANTS SECTION ==== -->
+                <section id="plantLibrarySection" style="display:none;">
+                    <div class="plant-library-header">
+                        <h2><i class="fa-solid fa-seedling"></i> My Plants</h2>
+                        <button id="addPlantBtn" class="add-plant-btn">
+                            <i class="fa-solid fa-plus"></i> Add Plant
+                        </button>
+                    </div>
+                    <div id="plantLibraryList" class="plant-library-grid"></div>
+                    <!-- MODAL FOR ADD/EDIT -->
+                    <div class="modal-bg" id="plantModal">
+                        <div class="modal-glass">
+                            <button id="closePlantModal" class="close-modal" aria-label="Close">&times;</button>
+                            <h3 id="plantModalTitle">Add Plant</h3>
+                            <form id="plantForm" autocomplete="off">
+                                <input type="text" name="plantName" placeholder="Plant Name" required>
+                                <input type="text" name="plantSpecies" placeholder="Species">
+                                <input type="text" name="plantLocation" placeholder="Location">
+                                <input type="url" name="plantImage" placeholder="Image URL (optional)">
+                                <textarea name="plantNotes" placeholder="Notes (optional)" rows="2"></textarea>
+                                <div class="modal-message" id="plantModalMsg"></div>
+                                <button type="submit" class="submit-btn">
+                                    <i class="fa-solid fa-paper-plane"></i> Save Plant
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- HEALTH MODAL FOR PLANT -->
+                    <div class="modal-bg" id="plantHealthModal">
+                        <div class="modal-glass">
+                            <button id="closeHealthModal" class="close-modal" aria-label="Close">&times;</button>
+                            <h3>Update Plant Health</h3>
+                            <form id="plantHealthForm" autocomplete="off">
+                                <label>
+                                    Status:
+                                    <select name="status" required>
+                                        <option value="Healthy">Healthy</option>
+                                        <option value="Needs Attention">Needs Attention</option>
+                                        <option value="Diseased">Diseased</option>
+                                        <option value="Recovering">Recovering</option>
+                                    </select>
+                                </label>
+                                <label>
+                                    Note:
+                                    <textarea name="note" placeholder="Describe symptoms or care taken"></textarea>
+                                </label>
+                                <label>
+                                    Photo URL:
+                                    <input name="photo" placeholder="Optional image link" type="url">
+                                </label>
+                                <div class="modal-message" id="healthModalMsg"></div>
+                                <button type="submit" class="submit-btn">
+                                    <i class="fa-solid fa-heart-pulse"></i> Save Health Status
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                <!-- ========== END PLANT LIBRARY SECTION ========== -->
+
+                <!-- ==== REMINDERS SECTION ==== -->
+                <section id="remindersSection" style="display:none;">
+                    <div class="reminders-header">
+                        <h2><i class="fa-solid fa-bell"></i> Reminders</h2>
+                        <button id="addReminderBtn" class="add-reminder-btn">
+                            <i class="fa-solid fa-plus"></i> Add Reminder
+                        </button>
+                    </div>
+                    <div id="remindersList" class="reminders-list"></div>
+                    <!-- MODAL FOR ADD/EDIT -->
+                    <div class="modal-bg" id="reminderModal">
+                        <div class="modal-glass">
+                            <button id="closeReminderModal" class="close-modal" aria-label="Close">&times;</button>
+                            <h3 id="reminderModalTitle">Add Reminder</h3>
+                            <form id="reminderForm" autocomplete="off">
+                                <label>
+                                    Type:
+                                    <select name="reminderType" required>
+                                        <option value="Water">Water</option>
+                                        <option value="Fertilize">Fertilize</option>
+                                        <option value="Prune">Prune</option>
+                                        <option value="Repot">Repot</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </label>
+                                <label>
+                                    Date:
+                                    <input type="date" name="reminderDate" required>
+                                </label>
+                                <label>
+                                    Notes:
+                                    <textarea name="reminderNotes" placeholder="(Optional)"></textarea>
+                                </label>
+                                <div class="modal-message" id="reminderModalMsg"></div>
+                                <button type="submit" class="submit-btn">
+                                    <i class="fa-solid fa-paper-plane"></i> Save Reminder
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                <!-- ========== END REMINDERS SECTION ========== -->
+
+                <!-- ==== GARDEN LAYOUT PLANNER SECTION ==== -->
+                <section id="layoutPlannerSection" style="display:none;">
+                    <div class="layout-planner-header">
+                        <h2><i class="fa-solid fa-border-all"></i> Garden Layout Planner</h2>
+                        <div>
+                            <label>Rows: <input type="number" id="layoutRows" min="2" max="10" value="4"></label>
+                            <label>Cols: <input type="number" id="layoutCols" min="2" max="10" value="6"></label>
+                            <button id="updateLayoutGrid" class="layout-btn">Update Grid</button>
+                            <button id="clearLayoutGrid" class="layout-btn danger">Clear</button>
+                            <button id="saveLayoutGrid" class="layout-btn">Save</button>
+                            <button id="loadLayoutGrid" class="layout-btn">Load</button>
+                        </div>
+                    </div>
+                    <div class="layout-planner-body">
+                        <div class="layout-planner-sidebar">
+                            <h4>My Plants</h4>
+                            <div id="plantListForLayout"></div>
+                            <small>Click or drag a plant, then place/cycle sunlight/soil</small>
+                        </div>
+                        <div id="gardenGrid" class="layout-planner-grid"></div>
+                    </div>
+                </section>
+                <!-- ========== END LAYOUT PLANNER SECTION ========== -->
+
+                <!-- ==== WEATHER SECTION ==== -->
+                <section id="weatherSection" style="display:none;">
+                    <div class="weather-header">
+                        <h2><i class="fa-solid fa-cloud-sun"></i> Weather</h2>
+                        <form id="weatherSearchForm" class="weather-search-form">
+                            <input type="text" id="weatherCityInput" placeholder="Enter city (e.g. Mumbai)" required />
+                            <button type="submit" class="weather-search-btn"><i
+                                    class="fa-solid fa-magnifying-glass"></i> Search</button>
+                        </form>
+                    </div>
+
+                    <div id="weatherWidget"></div>
+                </section>
+
+                <!-- Plant Journal Modal -->
+                <div class="modal-bg" id="plantJournalModal" style="display:none;">
+                    <div class="modal-glass journal-modal-glass">
+                        <button id="closeJournalModal" class="close-modal" aria-label="Close">&times;</button>
+                        <h3>Plant Journal</h3>
+                        <div id="journalTimeline" class="journal-timeline"></div>
+                        <form id="journalForm" autocomplete="off" class="journal-form">
+                            <textarea name="entry" placeholder="Write a note or log..." required rows="2"></textarea>
+                            <input type="url" name="photo" placeholder="Optional photo link" />
+                            <button type="submit" class="submit-btn"><i class="fa-solid fa-plus"></i> Add Log</button>
+                            <div class="modal-message" id="journalModalMsg"></div>
+                        </form>
+                    </div>
+                </div>
+                <!-- ==== JOURNAL TAB SECTION ==== -->
+                <section id="journalSection">
+                    <div class="journal-header">
+                        <h2><i class="fa-solid fa-book"></i> Plant Journal</h2>
+                    </div>
+                    <div id="journalTabContent" class="journal-grid">
+                        <!-- Journal entry cards rendered here by JS -->
+                    </div>
+                </section>
+
+
+
+                <!-- ========== END JOURNAL SECTION ========== -->
+                <!-- ==== COMMUNITY SECTION ==== -->
+                <section id="communitySection" style="display:none;">
+                    <div class="community-header">
+                        <h2><i class="fa-solid fa-users"></i> Community Wall</h2>
+                        <form id="communityForm" autocomplete="off" class="community-form">
+                            <textarea name="message" placeholder="Share your thoughts, questions, or tips..." required
+                                rows="2"></textarea>
+                            <button type="submit" class="submit-btn">
+                                <i class="fa-solid fa-paper-plane"></i> Post
+                            </button>
+                        </form>
+                    </div>
+                    <div id="communityMessages" class="community-messages"></div>
+                </section>
+                <!-- ========== END COMMUNITY SECTION ========== -->
+                <!-- ========== (Add More Sections: Layout, Journal, etc) ========== -->
+            </section>
+        </main>
+    </div>
+    <!-- Dashboard JS (handles section switching and CRUD) -->
+    <script src="js/dashboard.js" type="module"></script>
+    <script src="js/plant-journal.js" type="module"></script>
+    <script src="js/plant-library.js" type="module"></script>
+    <script src="js/reminders.js" type="module"></script>
+    <script src="js/community.js" type="module"></script>
+</body>
+
+</html>

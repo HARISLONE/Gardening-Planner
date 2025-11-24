@@ -1,0 +1,500 @@
+.plant-library-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.2em;
+}
+
+.plant-library-header h2 {
+  font-size: 2em;
+  color: #188b54;
+  letter-spacing: -1.2px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.layout-plant-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5em 0.8em;
+  border: 1.7px solid #e7ffe7;
+  border-radius: 0.9em;
+  margin-bottom: 0.45em;
+  cursor: pointer;
+  background: #fff;
+  font-weight: 600;
+  transition: border 0.12s, box-shadow 0.12s, background 0.13s;
+}
+.layout-plant-item.selected,
+.layout-plant-item:hover {
+  border: 2px solid #47c87c;
+  background: #e7ffe7;
+  box-shadow: 0 3px 10px #47c87c21;
+}
+.layout-cell {
+  transition: box-shadow 0.13s;
+  position: relative;
+}
+.cell-note-indicator {
+  color: #ffd900;
+  position: absolute;
+  bottom: 8px;
+  left: 40px;
+  font-size: 1.1em;
+}
+.remove-plant-btn,
+.add-note-btn {
+  opacity: 0.96;
+  transition: opacity 0.14s;
+}
+.remove-plant-btn:hover,
+.add-note-btn:hover {
+  opacity: 1;
+}
+
+.add-plant-btn {
+  background: linear-gradient(90deg, #53d79a 0%, #60b97b 100%);
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.09em;
+  padding: 0.83em 2.1em;
+  border: none;
+  border-radius: 2em;
+  cursor: pointer;
+  box-shadow: 0 2px 12px #60b97b1b;
+  transition: background 0.16s, transform 0.12s;
+}
+.add-plant-btn:hover {
+  background: linear-gradient(90deg, #188b54 0%, #60b97b 100%);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.plant-library-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 1.7em;
+}
+
+.plant-card {
+  background: #fff;
+  border-radius: 1.2em;
+  box-shadow: 0 4px 16px #43b56a18;
+  display: flex;
+  align-items: center;
+  padding: 1em 1.3em 1em 1.3em;
+  margin-bottom: 0.8em;
+  transition: box-shadow 0.16s, transform 0.11s;
+  position: relative;
+  min-width: 0;
+  gap: 1.4em;
+}
+.plant-card:hover {
+  box-shadow: 0 8px 32px #43b56a24;
+  transform: scale(1.02);
+}
+
+.plant-img-wrap {
+  width: 82px;
+  height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.plant-card-img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #43b56a2c;
+  background: #f6faf8;
+}
+.plant-card-details {
+  flex: 1;
+  min-width: 0;
+}
+.plant-card-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.12em;
+}
+.plant-card-name {
+  font-size: 1.16em;
+  font-weight: 800;
+  color: #188b54;
+  margin: 0;
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 160px;
+}
+.plant-card-actions button {
+  background: none;
+  border: none;
+  color: #43b56a;
+  font-size: 1.17em;
+  margin-left: 0.2em;
+  cursor: pointer;
+  border-radius: 100%;
+  padding: 0.45em 0.45em;
+  transition: background 0.13s, color 0.13s, transform 0.11s;
+}
+.plant-card-actions button:hover {
+  background: #eafff3;
+  color: #e84545;
+  transform: scale(1.13);
+}
+.plant-card-info {
+  margin: 0.13em 0 0.36em 0;
+  display: flex;
+  gap: 1em;
+  font-size: 1em;
+  color: #234e31;
+}
+.plant-species,
+.plant-location {
+  color: #276b42;
+  font-weight: 500;
+}
+.plant-notes {
+  color: #507e68;
+  font-size: 0.98em;
+  background: #f6faf8;
+  border-radius: 0.6em;
+  padding: 0.5em 0.8em;
+  margin-top: 0.1em;
+}
+@media (max-width: 700px) {
+  .plant-library-header {
+    flex-direction: column;
+    gap: 1.2em;
+  }
+  .plant-library-grid {
+    grid-template-columns: 1fr;
+  }
+  .plant-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .plant-img-wrap {
+    margin-bottom: 0.7em;
+  }
+}
+
+/* Modal Styles */
+.modal-bg {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 36, 30, 0.21);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4.5px);
+}
+.modal-bg.active {
+  display: flex !important;
+  background: rgba(0, 0, 0, 0.45);
+}
+.modal-glass {
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 1.6em;
+  box-shadow: 0 12px 32px 0 rgba(44, 60, 85, 0.13);
+  /* IMPROVED: fixed max width and width 100% */
+  width: 100%;
+  max-width: 480px;
+  min-width: 320px;
+  min-height: 8em;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 2em 1.6em 1.6em 1.6em;
+  box-sizing: border-box; /* Prevent overflow! */
+  animation: popInModal 0.29s cubic-bezier(0.51, 1.7, 0.46, 0.95) forwards;
+}
+@keyframes popInModal {
+  0% {
+    opacity: 0;
+    transform: translateY(34px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.close-modal {
+  position: absolute;
+  top: 1.05em;
+  right: 1.3em;
+  background: none;
+  border: none;
+  font-size: 1.65rem;
+  color: #188b54;
+  font-weight: 700;
+  cursor: pointer;
+  opacity: 0.9;
+  z-index: 2;
+  transition: color 0.14s, opacity 0.15s;
+}
+.close-modal:hover {
+  color: #e84545;
+  opacity: 1;
+}
+#plantModalTitle {
+  margin-bottom: 1em;
+  color: #188b54;
+  text-align: center;
+  font-weight: 800;
+}
+#plantForm input,
+#plantForm textarea {
+  width: 100%;
+  font-size: 1em;
+  margin-bottom: 1em;
+  padding: 0.9em 1em;
+  border-radius: 1.1em;
+  border: 1.5px solid #c7f5e0;
+  background: #f6faf8;
+  transition: border 0.13s;
+  box-sizing: border-box;
+  max-width: 100%; /* Prevent overflow! */
+  display: block;
+}
+#plantForm textarea {
+  resize: vertical; /* allow vertical resizing only */
+  min-height: 64px;
+  max-width: 100%;
+  overflow-x: auto;
+  line-height: 1.4;
+  box-sizing: border-box;
+}
+#plantForm input:focus,
+#plantForm textarea:focus {
+  border: 2px solid #47c87c;
+  outline: none;
+}
+.submit-btn {
+  background: linear-gradient(90deg, #43b56a 0%, #60b97b 100%);
+  color: #fff;
+  border-radius: 1em;
+  padding: 1em 0;
+  width: 100%;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  margin-top: 0.5em;
+  font-size: 1.13em;
+  transition: background 0.16s, transform 0.12s;
+}
+.submit-btn:hover {
+  background: linear-gradient(90deg, #188b54 0%, #53d79a 100%);
+  transform: translateY(-2px) scale(1.02);
+}
+.modal-message {
+  min-height: 1.1em;
+  color: #e84545;
+  text-align: center;
+  margin-bottom: 0.3em;
+}
+.plant-health-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 13px;
+  font-size: 0.89em;
+  font-weight: 700;
+  margin: 7px 0 3px 0;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+.plant-health-timeline {
+  margin: 7px 0 0 0;
+  font-size: 0.95em;
+}
+.plant-health-timeline .timeline-entry {
+  background: #f6faf8;
+  border-left: 3px solid #ddd;
+  padding: 4px 8px 4px 13px;
+  margin-bottom: 4px;
+  border-radius: 7px;
+}
+.plant-health-timeline .timeline-entry b {
+  font-size: 1em;
+}
+.plant-health-timeline .timeline-note {
+  color: #33885b;
+  font-size: 0.93em;
+}
+
+/* Modern plant health modal */
+#plantHealthModal .modal-glass {
+  background: #fff;
+  border-radius: 1.7em;
+  box-shadow: 0 12px 36px #16924e29, 0 2px 12px #16924e1b;
+  padding: 2.3em 2em 1.4em 2em;
+  max-width: 420px;
+  min-width: 320px;
+  position: relative;
+  animation: modalPopIn 0.22s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+@keyframes modalPopIn {
+  0% {
+    transform: scale(0.88) translateY(32px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+#plantHealthModal h3 {
+  font-size: 1.4em;
+  font-weight: 800;
+  color: #1d3320;
+  margin-bottom: 1.2em;
+  letter-spacing: -1px;
+}
+#plantHealthModal label {
+  font-weight: 600;
+  color: #1a713b;
+  margin-bottom: 0.6em;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+#plantHealthModal select,
+#plantHealthModal input,
+#plantHealthModal textarea {
+  margin-left: 0.3em;
+  margin-bottom: 0.85em;
+  border-radius: 0.9em;
+  border: 1.2px solid #c7f5e0;
+  background: #f6faf8;
+  font-size: 1em;
+  padding: 0.55em 0.95em;
+  min-width: 50px;
+  font-family: inherit;
+  transition: border 0.13s;
+}
+#plantHealthModal textarea {
+  min-width: 210px;
+  min-height: 55px;
+  resize: vertical;
+}
+#plantHealthModal select:focus,
+#plantHealthModal input:focus,
+#plantHealthModal textarea:focus {
+  border-color: #43b56a;
+  outline: none;
+}
+#plantHealthModal .submit-btn {
+  background: linear-gradient(90deg, #43b56a 0%, #60b97b 100%);
+  color: #fff;
+  border: none;
+  border-radius: 16px;
+  padding: 1.1em 0;
+  font-size: 1.13em;
+  font-weight: 800;
+  width: 100%;
+  margin-top: 1.1em;
+  cursor: pointer;
+  transition: background 0.13s, box-shadow 0.13s, transform 0.11s;
+  box-shadow: 0 1.5px 8px #43b56a17;
+  letter-spacing: 1.2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7em;
+}
+#plantHealthModal .submit-btn:hover {
+  background: linear-gradient(90deg, #188b54 0%, #43b56a 100%);
+  transform: scale(1.03) translateY(-2px);
+  box-shadow: 0 2px 16px #43b56a22;
+}
+
+#plantHealthModal .close-modal {
+  position: absolute;
+  right: 20px;
+  top: 16px;
+  background: #e84545;
+  color: #fff;
+  border: none;
+  font-size: 1.5em;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: background 0.15s;
+}
+#plantHealthModal .close-modal:hover {
+  background: #c22222;
+}
+
+/* Plant card health badge & timeline */
+.plant-health-badge {
+  display: inline-block;
+  padding: 3px 14px;
+  border-radius: 14px;
+  font-size: 1em;
+  font-weight: 800;
+  margin: 10px 0 6px 0;
+  color: #fff;
+  letter-spacing: 0.5px;
+  box-shadow: 0 1px 8px #0001;
+  border: 2px solid #fff;
+  position: relative;
+  top: 2px;
+}
+.plant-card-actions .health-btn {
+  background: #f7faf8;
+  border: none;
+  border-radius: 50%;
+  color: #43b56a;
+  font-size: 1.13em;
+  width: 33px;
+  height: 33px;
+  margin-left: 7px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.12s;
+  cursor: pointer;
+  box-shadow: 0 1px 6px #43b56a14;
+}
+.plant-card-actions .health-btn:hover {
+  background: #43b56a;
+  color: #fff;
+}
+
+.plant-health-timeline {
+  margin: 13px 0 0 0;
+  font-size: 1.04em;
+  border-left: 3px solid #e0f7ea;
+  padding-left: 10px;
+}
+.plant-health-timeline .timeline-entry {
+  background: #f6faf8;
+  border-left: 4px solid #43b56a70;
+  padding: 5px 10px 4px 14px;
+  margin-bottom: 7px;
+  border-radius: 7px;
+  box-shadow: 0 1.5px 8px #43b56a13;
+}
+.plant-health-timeline .timeline-entry b {
+  font-size: 1.09em;
+  color: #188b54;
+}
+.plant-health-timeline .timeline-note {
+  color: #33885b;
+  font-size: 0.99em;
+  margin-top: 2px;
+}
+
+@media (max-width: 700px) {
+  #plantHealthModal .modal-glass {
+    max-width: 97vw;
+    padding: 1.1em 0.5em 1em 0.5em;
+    min-width: 0;
+  }
+}

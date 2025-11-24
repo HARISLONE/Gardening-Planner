@@ -1,0 +1,26 @@
+body {
+  font-family: "Inter", Arial, sans-serif;
+  margin: 0;
+  background: #f5f7f6;
+  color: #202b21;
+}
+
+a {
+  color: #2b9067;
+  text-decoration: none;
+  transition: color 0.16s;
+}
+a:hover {
+  color: #1c6446;
+  text-decoration: underline;
+}
+
+button {
+  font-family: inherit;
+  outline: none;
+  border: none;
+}
+button:focus {
+  outline: 2px solid #2b9067;
+  outline-offset: 2px;
+}

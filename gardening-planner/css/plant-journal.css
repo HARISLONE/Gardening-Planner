@@ -1,0 +1,215 @@
+.journal-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.journal-header {
+  margin-bottom: 36px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  justify-content: flex-start;
+  padding-left: 18px;
+}
+
+.journal-header h2 {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #176848;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+.journal-header i {
+  font-size: 2.1rem;
+  color: #188b54;
+  margin-top: 2px;
+}
+
+.journal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+  gap: 2.3em 2.2em; /* row-gap column-gap */
+  max-width: 1050px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 1.2em;
+  box-sizing: border-box;
+}
+
+.journal-entry-card {
+  background: #fff;
+  border-radius: 1.45em;
+  box-shadow: 0 8px 32px 0 rgba(24, 139, 84, 0.12), 0 2px 16px #43b56a10;
+  padding: 28px 28px 18px 26px;
+  width: 100%;
+  border-left: 6px solid #23b98b;
+  transition: box-shadow 0.15s, transform 0.13s;
+  position: relative;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  margin: 0 auto;
+  min-width: 0;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+}
+
+.journal-entry-card:hover {
+  box-shadow: 0 16px 40px rgba(44, 104, 87, 0.13);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.journal-plant {
+  font-size: 1.07rem;
+  font-weight: 700;
+  color: #23b98b;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  letter-spacing: 0.1px;
+}
+.journal-plant:before {
+  content: "\f4d8";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  color: #23b98b;
+  margin-right: 6px;
+  font-size: 1.13em;
+}
+
+.journal-date {
+  color: #8b8b8b;
+  font-size: 0.97rem;
+  margin-bottom: 7px;
+  font-weight: 600;
+}
+
+.journal-text {
+  font-size: 1.18rem;
+  margin-bottom: 8px;
+  color: #1d3320;
+  line-height: 1.54;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.journal-entry-card img {
+  border-radius: 10px;
+  margin-top: 8px;
+  box-shadow: 0 1px 7px rgba(38, 102, 67, 0.11);
+  max-width: 112px;
+  max-height: 70px;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  #journalSection {
+    max-width: 99vw;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .journal-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .journal-entry-card {
+    padding: 18px 9px 13px 14px;
+    max-width: 99vw;
+  }
+}
+
+/* PLANT JOURNAL MODAL STYLES */
+#plantJournalModal .modal-glass {
+  background: #fff;
+  border-radius: 1.5em;
+  box-shadow: 0 10px 30px #1b704b15;
+  width: 100%;
+  max-width: 420px;
+  min-width: 320px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 2em 1.5em 1.5em 1.5em;
+  box-sizing: border-box;
+  animation: popInModal 0.28s cubic-bezier(0.51, 1.7, 0.46, 0.95) forwards;
+}
+
+#plantJournalModal h3 {
+  margin-bottom: 1.2em;
+  color: #188b54;
+  text-align: left;
+  font-weight: 900;
+  font-size: 1.25em;
+  letter-spacing: -1px;
+}
+
+#journalTimeline {
+  margin-bottom: 1.2em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
+  max-height: 180px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+#journalTimeline .journal-entry {
+  background: #f6faf8;
+  border-left: 4px solid #43b56a70;
+  padding: 0.7em 1em 0.7em 1.1em;
+  border-radius: 0.8em;
+  box-shadow: 0 1.5px 8px #43b56a0e;
+  font-size: 1em;
+  color: #234e31;
+}
+#journalTimeline .journal-entry b {
+  color: #188b54;
+  font-weight: 700;
+}
+
+#journalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+}
+
+#journalForm textarea,
+#journalForm input[type="url"] {
+  width: 100%;
+  font-size: 1em;
+  padding: 0.8em 1em;
+  border-radius: 1em;
+  border: 1.5px solid #c7f5e0;
+  background: #f6faf8;
+  transition: border 0.13s;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+#journalForm textarea:focus,
+#journalForm input[type="url"]:focus {
+  border: 2px solid #43b56a;
+  outline: none;
+}
+
+#journalForm .submit-btn {
+  background: linear-gradient(90deg, #43b56a 0%, #60b97b 100%);
+  color: #fff;
+  border-radius: 1em;
+  padding: 1em 0;
+  width: 100%;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  margin-top: 0.4em;
+  font-size: 1.12em;
+  transition: background 0.16s, transform 0.12s;
+}
+
+#journalForm .submit-btn:hover {
+  background: linear-gradient(90deg, #188b54 0%, #43b56a 100%);
+  transform: scale(1.025);
+}

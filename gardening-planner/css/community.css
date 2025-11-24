@@ -1,0 +1,55 @@
+.community-header {
+  padding: 16px 0 10px 0;
+}
+.community-form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1.5px solid #b2f1be;
+  margin-bottom: 6px;
+  font-size: 1rem;
+  resize: vertical;
+}
+.community-form .submit-btn {
+  background: #48b36f;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.community-form .submit-btn:hover {
+  background: #388952;
+}
+.community-messages {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+.community-msg {
+  background: #f7fcf8;
+  border-left: 4px solid #7dd08e;
+  border-radius: 9px;
+  padding: 14px 18px;
+  box-shadow: 0 1px 8px #eafaea7c;
+}
+.community-msg b {
+  color: #388952;
+  font-size: 1.05rem;
+}
+.community-date {
+  float: right;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+.community-text {
+  margin-top: 6px;
+  font-size: 1.1rem;
+  color: #224631;
+  white-space: pre-line;
+}
